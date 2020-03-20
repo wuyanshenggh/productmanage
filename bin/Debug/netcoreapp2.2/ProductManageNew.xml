@@ -1,0 +1,1553 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>ProductManageNew</name>
+    </assembly>
+    <members>
+        <member name="M:ProductMange.BLL.OneKeyUpgrade.BLLUpgrade.CancelReserve(System.Guid)">
+            <summary>
+            取消预约
+            </summary>
+            <param name="InfoId"></param>
+        </member>
+        <member name="M:ProductMange.BLL.OneKeyUpgrade.BLLUpgrade.MessageHandle(ProductMange.Model.Prc_UpgradeMessage,Microsoft.EntityFrameworkCore.DbContext)">
+            <summary>
+            消息处理
+            </summary>
+        </member>
+        <member name="M:ProductMange.BLL.OneKeyUpgrade.BLLUpgrade.UpgradeSucc(ProductMange.Model.Prc_UpgradeMessage,Microsoft.EntityFrameworkCore.DbContext)">
+            <summary>
+            升级成功
+            </summary>
+        </member>
+        <member name="M:ProductMange.BLL.OneKeyUpgrade.BLLUpgrade.StartUpgrade(ProductMange.Model.Prc_UpgradeMessage,Microsoft.EntityFrameworkCore.DbContext)">
+            <summary>
+            开始升级
+            </summary>
+        </member>
+        <member name="M:ProductMange.BLL.OneKeyUpgrade.BLLUpgrade.StartDownloadUpgradeBag(ProductMange.Model.Prc_UpgradeMessage,Microsoft.EntityFrameworkCore.DbContext)">
+            <summary>
+            开始下载
+            </summary>
+        </member>
+        <member name="M:ProductMange.BLL.OneKeyUpgrade.BLLUpgrade.FinishDownloadUpgradeBag(ProductMange.Model.Prc_UpgradeMessage,Microsoft.EntityFrameworkCore.DbContext)">
+            <summary>
+            完成下载
+            </summary>
+        </member>
+        <member name="M:ProductMange.BLL.OneKeyUpgrade.BLLUpgrade.UpgradeCancel(ProductMange.Model.Prc_UpgradeMessage,Microsoft.EntityFrameworkCore.DbContext)">
+            <summary>
+            取消升级
+            </summary>
+        </member>
+        <member name="M:ProductMange.BLL.OneKeyUpgrade.BLLUpgrade.UpgradeFail(ProductMange.Model.Prc_UpgradeMessage,Microsoft.EntityFrameworkCore.DbContext)">
+            <summary>
+            升级失败
+            </summary>
+        </member>
+        <member name="M:ProductMange.BLL.OneKeyUpgrade.BLLUpgrade.UpgradeOverdued(ProductMange.Model.Prc_UpgradeMessage,Microsoft.EntityFrameworkCore.DbContext)">
+            <summary>
+            升级过期
+            </summary>
+        </member>
+        <member name="M:ProductMange.BLL.OneKeyUpgrade.BLLUpgrade.CheckFinish(ProductMange.Model.Prc_UpgradeMessage,Microsoft.EntityFrameworkCore.DbContext)">
+            <summary>
+            是否已升级完成
+            </summary>
+        </member>
+        <member name="F:ProductMange.BLL.OneKeyUpgrade.ErrorMsgFlag.UpgradeFail">
+            <summary>
+            因升级失败停止升级
+            </summary>
+        </member>
+        <member name="F:ProductMange.BLL.OneKeyUpgrade.ErrorMsgFlag.UpgradeCancel">
+            <summary>
+            因取消停止升级
+            </summary>
+        </member>
+        <member name="F:ProductMange.BLL.OneKeyUpgrade.ErrorMsgFlag.UpgradeOverdued">
+            <summary>
+            因过期停止升级
+            </summary>
+        </member>
+        <member name="F:ProductMange.BLL.OneKeyUpgrade.InfoMsgFlag.StartDownloadUpgradeBag">
+            <summary>
+            开始下载更新包
+            </summary>
+        </member>
+        <member name="F:ProductMange.BLL.OneKeyUpgrade.InfoMsgFlag.FinishDownloadUpgradeBag">
+            <summary>
+            完成下载
+            </summary>
+        </member>
+        <member name="F:ProductMange.BLL.OneKeyUpgrade.InfoMsgFlag.StartUpgrade">
+            <summary>
+            开始升级
+            </summary>
+        </member>
+        <member name="F:ProductMange.BLL.OneKeyUpgrade.InfoMsgFlag.ExitServicesSucc">
+            <summary>
+            服务关闭成功
+            </summary>
+        </member>
+        <member name="F:ProductMange.BLL.OneKeyUpgrade.InfoMsgFlag.UpgradeSucc">
+            <summary>
+            升级成功
+            </summary>
+        </member>
+        <member name="F:ProductMange.BLL.OneKeyUpgrade.InfoMsgFlag.DataSynTaskWait">
+            <summary>
+            数据同步中
+            </summary>
+        </member>
+        <member name="F:ProductMange.BLL.OneKeyUpgrade.InfoMsgFlag.DataSynTaskFinish">
+            <summary>
+            数据同步任务完成
+            </summary>
+        </member>
+        <member name="F:ProductMange.BLL.OneKeyUpgrade.QuestionMsgFlag.UnZipFail">
+            <summary>
+            解压失败
+            </summary>
+        </member>
+        <member name="F:ProductMange.BLL.OneKeyUpgrade.QuestionMsgFlag.StartUpgradeExeFail">
+            <summary>
+            启动升级程序失败
+            </summary>
+        </member>
+        <member name="F:ProductMange.BLL.OneKeyUpgrade.QuestionMsgFlag.ExitServiceFail">
+            <summary>
+            关闭服务失败
+            </summary>
+        </member>
+        <member name="F:ProductMange.BLL.OneKeyUpgrade.QuestionMsgFlag.StartServiceFail">
+            <summary>
+            启动服务失败
+            </summary>
+        </member>
+        <member name="F:ProductMange.BLL.OneKeyUpgrade.QuestionMsgFlag.BackupDBFail">
+            <summary>
+            备份数据库失败
+            </summary>
+        </member>
+        <member name="F:ProductMange.BLL.OneKeyUpgrade.QuestionMsgFlag.BackupAppFail">
+            <summary>
+            备份应用失败
+            </summary>
+        </member>
+        <member name="F:ProductMange.BLL.OneKeyUpgrade.QuestionMsgFlag.DeleteOldBackupFail">
+            <summary>
+            删除旧备份文件失败
+            </summary>
+        </member>
+        <member name="T:ProductMange.Controllers.CalendarController">
+            <summary>
+            日历管理
+            </summary>
+        </member>
+        <member name="M:ProductMange.Controllers.CalendarController.SaveHoliday(ProductMange.DTO.DTOHolidayData)">
+            <summary>
+            保存更新日历
+            </summary>
+        </member>
+        <member name="M:ProductMange.Controllers.CalendarController.GetHoliday(ProductMange.DTO.DTOGetHolidayData)">
+            <summary>
+            获取更新日历
+            </summary>
+        </member>
+        <member name="M:ProductMange.Controllers.CalendarController.LoadHoliday(ProductMange.DTO.DTOLoadHoliday)">
+            <summary>
+            拉取法定日历
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ProductMange.Controllers.LoginController.DecodeBase64(System.String,System.String)">
+            解码
+        </member>
+        <member name="T:ProductMange.Controllers.MallInterfaceController">
+            <summary>
+            娱乐管家接口
+            </summary>
+        </member>
+        <member name="M:ProductMange.Controllers.MallInterfaceController.GetHolidayCalendar(ProductMange.DTO.Mall.DTOGetHolidayCalendar)">
+            <summary>
+            获取假期日历
+            </summary>        
+        </member>
+        <member name="M:ProductMange.Controllers.MallInterfaceController.GetPfVersionInfo">
+            <summary>
+            获取当前最新版本信息
+            </summary>
+        </member>
+        <member name="M:ProductMange.Controllers.MallInterfaceController.GetVersionInfoById(ProductMange.DTO.Mall.DTOGetVersionInfoById)">
+            <summary>
+            获取当前最新版本信息
+            </summary>
+        </member>
+        <member name="M:ProductMange.Controllers.MallInterfaceController.ReserveUpgrade(ProductMange.DTO.Mall.DTOReserveUpgrade)">
+            <summary>
+            预约升级接口
+            </summary>
+            <param name="dto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ProductMange.Controllers.MallInterfaceController.Heartbeat(ProductMange.DTO.Mall.DTOHeartbeat)">
+            <summary>
+            升级前信息交互及心跳
+            </summary>
+        </member>
+        <member name="M:ProductMange.Controllers.MallInterfaceController.ReceiveMessage(ProductMange.DTO.Mall.DTOMallMessage)">
+            <summary>
+            写入升级进度消息 
+            </summary>
+        </member>
+        <member name="M:ProductMange.Controllers.MallInterfaceController.SectionDownloadUpgradeBag(ProductMange.DTO.Mall.DTOUpgradeFileSectDownload)">
+            <summary>
+            分段下载更新包
+            </summary>
+        </member>
+        <member name="M:ProductMange.Controllers.MallInterfaceController.SectionDownloadUpgradeExe(ProductMange.DTO.Mall.DTOUpgradeFileSectDownload)">
+            <summary>
+            下载更新程序
+            </summary>
+        </member>
+        <member name="M:ProductMange.Controllers.MallInterfaceController.SectionDownloadFile(ProductMange.DTO.Mall.DTODownLoadFile)">
+            <summary>
+            通用下载接口
+            </summary>
+        </member>
+        <member name="T:ProductMange.Controllers.OutInterfaceBaseController">
+            <summary>
+            外总接口的请求BaseController
+            </summary>
+        </member>
+        <member name="M:ProductMange.Controllers.UpgradeInfoController.SearchUpgradeInfo(ProductMange.DTO.UpgradeInfo.DTOGetUpgradeInfoByPage)">
+            <summary>
+            查询升级信息
+            </summary>
+            <param name="dto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ProductMange.Controllers.UpgradeInfoController.EditConfirmUpgradeTime(ProductMange.DTO.UpgradeInfo.DTOEditUpgradeInfo)">
+            <summary>
+            修改确认升级时间
+            </summary>
+            <param name="dto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ProductMange.Controllers.UpgradeInfoController.CancelReserve(ProductMange.DTO.UpgradeInfo.DTOEditUpgradeInfo)">
+            <summary>
+            取消预约
+            </summary>
+        </member>
+        <member name="M:ProductMange.Controllers.UpgradeInfoController.CancelBusinessReserve(ProductMange.DTO.UpgradeInfo.DTOEditUpgradeInfoItem)">
+            <summary>
+            取消门店预约
+            </summary>
+        </member>
+        <member name="M:ProductMange.Controllers.UpgradeInfoController.StartUpgrade(ProductMange.DTO.UpgradeInfo.DTOEditUpgradeInfo)">
+            <summary>
+            开始升级
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ProductMange.Controllers.UpgradeInfoController.SearchUpgradeInfoItemByInfo(ProductMange.DTO.UpgradeInfo.DTOGetUpgradeInfoItem)">
+            <summary>
+            查询升级信息细项
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ProductMange.Controllers.UpgradeInfoController.SearchUpgradeDetailByInfo(ProductMange.DTO.UpgradeInfo.DTOGetUpgradeDetail)">
+            <summary>
+            查询升级详情
+            </summary>
+        </member>
+        <member name="M:ProductMange.Controllers.UpgradeInfoController.SearchUpgradeMessageByItem(ProductMange.DTO.UpgradeInfo.DTOGetUpgradeMessages)">
+            <summary>
+            查询升级详述
+            </summary>
+            <param name="dto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ProductMange.Controllers.UpgradeInfoController.EditHandleResult(ProductMange.DTO.UpgradeInfo.DTOEditMessageResult)">
+            <summary>
+            修改处理结果
+            </summary>
+        </member>
+        <member name="T:ProductMange.DTO.BaseRequest">
+            <summary>
+            提交基类
+            </summary>
+        </member>
+        <member name="T:ProductMange.DTO.DTOHolidayData">
+            <summary>
+            保存日历
+            </summary>
+        </member>
+        <member name="P:ProductMange.DTO.DTOHolidayData.ReserveHour">
+            <summary>
+            预约提前时间（小时）
+            </summary>
+        </member>
+        <member name="P:ProductMange.DTO.DTOHolidayData.ReserveDay">
+            <summary>
+            预约最大时间(天)
+            </summary>
+        </member>
+        <member name="P:ProductMange.DTO.HolidayItem.StrTime">
+            <summary>
+            日期
+            </summary>
+        </member>
+        <member name="P:ProductMange.DTO.HolidayItem.Type">
+            <summary>
+            日期类型
+            </summary>
+        </member>
+        <member name="T:ProductMange.DTO.DTOGetHolidayData">
+            <summary>
+            查询日历数据
+            </summary>
+        </member>
+        <member name="T:ProductMange.DTO.DTOBackHolidayData">
+            <summary>
+            返回日历数据
+            </summary>
+        </member>
+        <member name="P:ProductMange.DTO.DTOBackHolidayData.StrJson">
+            <summary>
+            日历数据
+            </summary>
+        </member>
+        <member name="P:ProductMange.DTO.DTOBackHolidayData.ReserveHour">
+            <summary>
+            预约提前时间（小时）
+            </summary>
+        </member>
+        <member name="P:ProductMange.DTO.DTOBackHolidayData.ReserveDay">
+            <summary>
+            预约最大时间(天)
+            </summary>
+        </member>
+        <member name="T:ProductMange.DTO.DTOLoadHoliday">
+            <summary>
+            获取节假日
+            </summary>
+        </member>
+        <member name="T:ProductMange.DTO.DTOHDLoadHoliday">
+            <summary>
+            节假日平台，获取节假日
+            </summary>
+        </member>
+        <member name="T:ProductMange.DTO.DTOHolidayBaseRequest">
+            <summary>
+            节假日请求类
+            </summary>
+        </member>
+        <member name="P:ProductMange.DTO.DTOHolidayBaseRequest.TS">
+            <summary>
+            时间戳(10分钟)
+            </summary>
+        </member>
+        <member name="P:ProductMange.DTO.DTOHolidayBaseRequest.BusinessId">
+            <summary>
+            娱乐管家门店编号
+            </summary>
+        </member>
+        <member name="P:ProductMange.DTO.DTOHolidayBaseRequest.BusinessName">
+            <summary>
+            娱乐管家渠道类别
+            </summary>
+        </member>
+        <member name="P:ProductMange.DTO.Mall.DTOBackCheckDataQueue.Finished">
+            <summary>
+            队列同步是否完成
+            </summary>
+        </member>
+        <member name="P:ProductMange.DTO.Mall.DTODownLoadFile.FileRelativePath">
+            <summary>
+            文件相对路径
+            </summary>
+        </member>
+        <member name="P:ProductMange.DTO.Mall.DTODownLoadFile.CurrSize">
+            <summary>
+            本次取的大小
+            </summary>
+        </member>
+        <member name="P:ProductMange.DTO.Mall.DTODownLoadFile.CurrPosition">
+            <summary>
+            本次读取开始位置
+            </summary>
+        </member>
+        <member name="P:ProductMange.DTO.Mall.DTOGetHolidayCalendar.Years">
+            <summary>
+            年份
+            </summary>
+        </member>
+        <member name="T:ProductMange.DTO.Mall.DTOBackHolidayCalendar">
+            <summary>
+            返回日历数据
+            </summary>
+        </member>
+        <member name="P:ProductMange.DTO.Mall.DTOBackHolidayCalendar.HolidayJsons">
+            <summary>
+            日历数据
+            </summary>
+        </member>
+        <member name="P:ProductMange.DTO.Mall.DTOBackHolidayCalendar.ReserveHour">
+            <summary>
+            预约提前时间（小时）
+            </summary>
+        </member>
+        <member name="P:ProductMange.DTO.Mall.DTOBackHolidayCalendar.ReserveDay">
+            <summary>
+            预约最大时间(天)
+            </summary>
+        </member>
+        <member name="P:ProductMange.DTO.Mall.DTOMallMessage.Messages">
+            <summary>
+            消息集合
+            </summary>
+        </member>
+        <member name="T:ProductMange.DTO.Mall.MallMessage">
+            <summary>
+            娱乐管家消息内容
+            </summary>
+        </member>
+        <member name="P:ProductMange.DTO.Mall.MallMessage.ID">
+            <summary>
+            消息ID
+            </summary>
+        </member>
+        <member name="P:ProductMange.DTO.Mall.MallMessage.BusinessNum">
+            <summary>
+            门店编号
+            </summary>
+        </member>
+        <member name="P:ProductMange.DTO.Mall.MallMessage.Content">
+            <summary>
+            消息内容
+            </summary>
+        </member>
+        <member name="P:ProductMange.DTO.Mall.MallMessage.OccurTime">
+            <summary>
+            发生时间
+            </summary>
+        </member>
+        <member name="P:ProductMange.DTO.Mall.MallMessage.MessageType">
+            <summary>
+            消息类型
+            </summary>
+        </member>
+        <member name="P:ProductMange.DTO.Mall.MallMessage.MessageFlag">
+            <summary>
+            消息标识
+            </summary>
+        </member>
+        <member name="P:ProductMange.DTO.Mall.DTOBackMallMessage.FailMessages">
+            <summary>
+            写入失败的消息
+            </summary>
+        </member>
+        <member name="P:ProductMange.DTO.Mall.DTOGetMallMessageResult.MessageIds">
+            <summary>
+            Message表的ID
+            </summary>
+        </member>
+        <member name="P:ProductMange.DTO.Mall.DTOBackMallMessageResult.Results">
+            <summary>
+            结果集
+            </summary>
+        </member>
+        <member name="T:ProductMange.DTO.Mall.DTOBackNewestVersionInfo">
+            <summary>
+            最新版本信息
+            </summary>
+        </member>
+        <member name="T:ProductMange.DTO.Mall.DTOReserveUpgrade">
+            <summary>
+            预约升级
+            </summary>
+        </member>
+        <member name="P:ProductMange.DTO.Mall.DTOReserveUpgrade.IsSingle">
+            <summary>
+            是否单店
+            </summary>
+        </member>
+        <member name="P:ProductMange.DTO.Mall.DTOReserveUpgrade.MallCode">
+            <summary>
+            商城编码
+            </summary>
+        </member>
+        <member name="P:ProductMange.DTO.Mall.DTOReserveUpgrade.MallName">
+            <summary>
+            商城名称
+            </summary>
+        </member>
+        <member name="P:ProductMange.DTO.Mall.DTOReserveUpgrade.OriginalVersionNo">
+            <summary>
+            原版本
+            </summary>
+        </member>
+        <member name="P:ProductMange.DTO.Mall.DTOReserveUpgrade.TargetVersionNo">
+            <summary>
+            目标版本
+            </summary>
+        </member>
+        <member name="P:ProductMange.DTO.Mall.DTOReserveUpgrade.TargetVersionID">
+            <summary>
+            目标版本ID
+            </summary>
+        </member>
+        <member name="P:ProductMange.DTO.Mall.DTOReserveUpgrade.ReserveTime">
+            <summary>
+            预约时间
+            </summary>
+        </member>
+        <member name="P:ProductMange.DTO.Mall.DTOReserveUpgrade.ContactPerson">
+            <summary>
+            联系人
+            </summary>
+        </member>
+        <member name="P:ProductMange.DTO.Mall.DTOReserveUpgrade.ContactPhone">
+            <summary>
+            联系电话
+            </summary>
+        </member>
+        <member name="P:ProductMange.DTO.Mall.DTOReserveUpgrade.ApplyTime">
+            <summary>
+            申请时间
+            </summary>
+        </member>
+        <member name="P:ProductMange.DTO.Mall.DTOReserveUpgrade.BusinessInfos">
+            <summary>
+            门店信息子集
+            </summary>
+        </member>
+        <member name="T:ProductMange.DTO.Mall.BusinessInfo">
+            <summary>
+            门店信息
+            </summary>
+        </member>
+        <member name="P:ProductMange.DTO.Mall.BusinessInfo.BusinessName">
+            <summary>
+            商户名称
+            </summary>
+        </member>
+        <member name="P:ProductMange.DTO.Mall.BusinessInfo.BusinessType">
+            <summary>
+            商户类型
+            </summary>
+        </member>
+        <member name="P:ProductMange.DTO.Mall.BusinessInfo.BusinessNum">
+            <summary>
+            门店编码
+            </summary>
+        </member>
+        <member name="T:ProductMange.DTO.Mall.DTOBackReserveUpgrade">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:ProductMange.DTO.Mall.DTOBackReserveUpgrade.InfoID">
+            <summary>
+            升级信息ID
+            </summary>
+        </member>
+        <member name="P:ProductMange.DTO.Mall.DTOUpgradeFileSectDownload.VersionId">
+            <summary>
+            版本ID
+            </summary>
+        </member>
+        <member name="P:ProductMange.DTO.Mall.DTOUpgradeFileSectDownload.CurrSize">
+            <summary>
+            本次取的大小
+            </summary>
+        </member>
+        <member name="P:ProductMange.DTO.Mall.DTOUpgradeFileSectDownload.CurrPosition">
+            <summary>
+            本次读取开始位置
+            </summary>
+        </member>
+        <member name="P:ProductMange.DTO.Mall.DTOBackFileSection.FileName">
+            <summary>
+            文件名
+            </summary>
+        </member>
+        <member name="P:ProductMange.DTO.Mall.DTOBackFileSection.FileSize">
+            <summary>
+            文件大小
+            </summary>
+        </member>
+        <member name="P:ProductMange.DTO.Mall.DTOBackFileSection.CurrSize">
+            <summary>
+            本次传输大小
+            </summary>
+        </member>
+        <member name="P:ProductMange.DTO.Mall.DTOBackFileSection.CurrPosition">
+            <summary>
+            本次文件读取的位置
+            </summary>
+        </member>
+        <member name="P:ProductMange.DTO.Mall.DTOBackFileSection.FileBuffer">
+            <summary>
+            文件内容
+            </summary>
+        </member>
+        <member name="T:ProductMange.DTO.Mall.DTOHeartbeat">
+            <summary>
+            预约升级
+            </summary>
+        </member>
+        <member name="P:ProductMange.DTO.Mall.DTOHeartbeat.InfoID">
+            <summary>
+            关联ID
+            </summary>
+        </member>
+        <member name="P:ProductMange.DTO.Mall.DTOHeartbeat.LostNetworkBusNum">
+            <summary>
+            网络异常的门店编码
+            </summary>
+        </member>
+        <member name="T:ProductMange.DTO.Mall.DTOBackHeartbeat">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:ProductMange.DTO.Mall.DTOBackHeartbeat.ConfirmUpgradeTime">
+            <summary>
+            确认升级时间
+            </summary>
+        </member>
+        <member name="P:ProductMange.DTO.Mall.DTOBackHeartbeat.IsCancel">
+            <summary>
+            是否取消
+            </summary>
+        </member>
+        <member name="P:ProductMange.DTO.Mall.DTOBackHeartbeat.IsStartUpgrade">
+            <summary>
+            是否开始升级
+            </summary>
+        </member>
+        <member name="P:ProductMange.DTO.Mall.DTOBackHeartbeat.CancelBusiness">
+            <summary>
+            各门店的更新状态
+            </summary>
+        </member>
+        <member name="P:ProductMange.DTO.UpgradeFile.DTOUpgradeFileDelete.VersionId">
+            <summary>
+            文件对应的版本ID
+            </summary>
+        </member>
+        <member name="P:ProductMange.DTO.UpgradeFile.DTOUpgradeFileDownload.VersionId">
+            <summary>
+            文件对应的版本ID
+            </summary>
+        </member>
+        <member name="P:ProductMange.DTO.UpgradeFile.DTOUpgradeFileUpload.VersionId">
+            <summary>
+            文件对应的版本ID
+            </summary>
+        </member>
+        <member name="P:ProductMange.DTO.UpgradeFile.DTOUpgradeFileUpload.FileName">
+            <summary>
+            文件名
+            </summary>
+        </member>
+        <member name="P:ProductMange.DTO.UpgradeFile.DTOUpgradeFileUpload.FileSize">
+            <summary>
+            文件大小
+            </summary>
+        </member>
+        <member name="P:ProductMange.DTO.UpgradeFile.DTOUpgradeFileUpload.CurrSize">
+            <summary>
+            本次传输大小
+            </summary>
+        </member>
+        <member name="P:ProductMange.DTO.UpgradeFile.DTOUpgradeFileUpload.CurrPosition">
+            <summary>
+            本次文件写入位置
+            </summary>
+        </member>
+        <member name="P:ProductMange.DTO.UpgradeFile.DTOUpgradeFileUpload.FileBuffer">
+            <summary>
+            文件内容
+            </summary>
+        </member>
+        <member name="P:ProductMange.DTO.UpgradeInfo.DTOEditUpgradeInfo.ConfirmUpgradeTime">
+            <summary>
+            确认升级时间
+            </summary>
+        </member>
+        <member name="P:ProductMange.DTO.UpgradeInfo.DTOEditUpgradeInfo.Summary">
+            <summary>
+            备注
+            </summary>
+        </member>
+        <member name="P:ProductMange.DTO.UpgradeInfo.DTOEditMessageResult.HandleResult">
+            <summary>
+            处理结果
+            </summary>
+        </member>
+        <member name="T:ProductMange.DTO.UpgradeInfo.DTOGetUpgradeDetail">
+            <summary>
+            升级详情
+            </summary>
+        </member>
+        <member name="P:ProductMange.DTO.UpgradeInfo.UpgradeDetail.ID">
+            <summary>
+            UpgradeMessage表ID
+            </summary>
+        </member>
+        <member name="P:ProductMange.DTO.UpgradeInfo.UpgradeDetail.UpgradeInfoItemID">
+            <summary>
+            升级细项ID
+            </summary>
+        </member>
+        <member name="P:ProductMange.DTO.UpgradeInfo.UpgradeDetail.BusinessType">
+            <summary>
+            商户类型
+            </summary>
+        </member>
+        <member name="P:ProductMange.DTO.UpgradeInfo.UpgradeDetail.MallName">
+            <summary>
+            商户名称
+            </summary>
+        </member>
+        <member name="P:ProductMange.DTO.UpgradeInfo.UpgradeDetail.Content">
+            <summary>
+            操作内容
+            </summary>
+        </member>
+        <member name="P:ProductMange.DTO.UpgradeInfo.UpgradeDetail.OccurTime">
+            <summary>
+            操作时间
+            </summary>
+        </member>
+        <member name="P:ProductMange.DTO.UpgradeInfo.UpgradeDetail.MessageType">
+            <summary>
+            操作类型
+            </summary>
+        </member>
+        <member name="P:ProductMange.DTO.UpgradeInfo.UpgradeDetail.MessageFlag">
+            <summary>
+            消息标志
+            </summary>
+        </member>
+        <member name="P:ProductMange.DTO.UpgradeInfo.UpgradeDetail.TimeConsum">
+            <summary>
+            耗时
+            </summary>
+        </member>
+        <member name="P:ProductMange.DTO.UpgradeInfo.UpgradeDetail.HeartbeatStatus">
+            <summary>
+            心跳状态(0正常，1异常，-1无)
+            </summary>
+        </member>
+        <member name="P:ProductMange.DTO.UpgradeInfo.UpgradeDetail.HandleStatus">
+            <summary>
+            处理状态，详见EnumHandleStatus
+            </summary>
+        </member>
+        <member name="P:ProductMange.DTO.UpgradeInfo.UpgradeDetail.HandleOptions">
+            <summary>
+            处理选项集合
+            </summary>
+        </member>
+        <member name="P:ProductMange.DTO.UpgradeInfo.UpgradeDetail.Result">
+            <summary>
+            消息结果
+            </summary>
+        </member>
+        <member name="P:ProductMange.DTO.UpgradeInfo.UpgradeDetail.UpgradeStatus">
+            <summary>
+            升级状态
+            </summary>
+        </member>
+        <member name="T:ProductMange.DTO.UpgradeInfo.DTOGetUpgradeInfoByPage">
+            <summary>
+            查询预约升级信息
+            </summary>
+        </member>
+        <member name="P:ProductMange.DTO.UpgradeInfo.DTOGetUpgradeInfoByPage.MallName">
+            <summary>
+            商户名称
+            </summary>
+        </member>
+        <member name="P:ProductMange.DTO.UpgradeInfo.DTOGetUpgradeInfoByPage.StartConfirmTime">
+            <summary>
+            开始确认时间
+            </summary>
+        </member>
+        <member name="P:ProductMange.DTO.UpgradeInfo.DTOGetUpgradeInfoByPage.EndConfirmTime">
+            <summary>
+            结束确认时间
+            </summary>
+        </member>
+        <member name="P:ProductMange.DTO.UpgradeInfo.DTOGetUpgradeInfoByPage.UpgradeStatus">
+            <summary>
+            更新状态
+            </summary>
+        </member>
+        <member name="T:ProductMange.DTO.UpgradeInfo.DTOBackUpgradeInfoByPage">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:ProductMange.DTO.UpgradeInfo.UpgradeInfo.MallName">
+            <summary>
+            商城名称
+            </summary>
+        </member>
+        <member name="P:ProductMange.DTO.UpgradeInfo.UpgradeInfo.MallCode">
+            <summary>
+            商城编号
+            </summary>
+        </member>
+        <member name="P:ProductMange.DTO.UpgradeInfo.UpgradeInfo.OriginalVersion">
+            <summary>
+            原版本
+            </summary>
+        </member>
+        <member name="P:ProductMange.DTO.UpgradeInfo.UpgradeInfo.TargetVersion">
+            <summary>
+            目标版本
+            </summary>
+        </member>
+        <member name="P:ProductMange.DTO.UpgradeInfo.UpgradeInfo.BusinessCount">
+            <summary>
+            门店数量
+            </summary>
+        </member>
+        <member name="P:ProductMange.DTO.UpgradeInfo.UpgradeInfo.ReserveTime">
+            <summary>
+            预约时间
+            </summary>
+        </member>
+        <member name="P:ProductMange.DTO.UpgradeInfo.UpgradeInfo.ContactPerson">
+            <summary>
+            联系人
+            </summary>
+        </member>
+        <member name="P:ProductMange.DTO.UpgradeInfo.UpgradeInfo.ContactPhone">
+            <summary>
+            联系电话
+            </summary>
+        </member>
+        <member name="P:ProductMange.DTO.UpgradeInfo.UpgradeInfo.UpgradeStatus">
+            <summary>
+            更新状态
+            </summary>
+        </member>
+        <member name="P:ProductMange.DTO.UpgradeInfo.UpgradeInfo.ConfirmUpgradeTime">
+            <summary>
+            确认更新时间
+            </summary>
+        </member>
+        <member name="P:ProductMange.DTO.UpgradeInfo.UpgradeInfo.HeartbeatStatus">
+            <summary>
+            心跳状态(-1非升级时间,0正常，1异常)
+            </summary>
+        </member>
+        <member name="P:ProductMange.DTO.UpgradeInfo.UpgradeInfo.TimeConsum">
+            <summary>
+            升级耗时
+            </summary>
+        </member>
+        <member name="P:ProductMange.DTO.UpgradeInfo.UpgradeInfo.AbnormalCount">
+            <summary>
+            异常数量
+            </summary>
+        </member>
+        <member name="P:ProductMange.DTO.UpgradeInfo.UpgradeInfo.Summary">
+            <summary>
+            备注
+            </summary>
+        </member>
+        <member name="P:ProductMange.DTO.UpgradeInfo.DTOBackUpgradeInfoItem.InfoUpgradeStatus">
+            <summary>
+            整个任务的更新状态,详见EnumUpgradeStatus
+            </summary>
+        </member>
+        <member name="T:ProductMange.DTO.UpgradeInfo.UpgradeInfoItem">
+            <summary>
+            升级细项
+            </summary>
+        </member>
+        <member name="P:ProductMange.DTO.UpgradeInfo.UpgradeInfoItem.BusinessType">
+            <summary>
+            商户类型
+            </summary>
+        </member>
+        <member name="P:ProductMange.DTO.UpgradeInfo.UpgradeInfoItem.MallName">
+            <summary>
+            商户名称
+            </summary>
+        </member>
+        <member name="P:ProductMange.DTO.UpgradeInfo.UpgradeInfoItem.HeartbeatStatus">
+            <summary>
+            网络状态(0正常，1异常，-1无)
+            </summary>
+        </member>
+        <member name="P:ProductMange.DTO.UpgradeInfo.UpgradeInfoItem.UpgradeBagStatus">
+            <summary>
+            更新包状态,详见EnumUpgradeBagStatus
+            </summary>
+        </member>
+        <member name="P:ProductMange.DTO.UpgradeInfo.UpgradeInfoItem.UpgradeStatus">
+            <summary>
+            更新状态详见EnumUpgradeStatus
+            </summary>
+        </member>
+        <member name="P:ProductMange.DTO.UpgradeInfo.UpgradeInfoItem.IsSingle">
+            <summary>
+            是否单店
+            </summary>
+        </member>
+        <member name="T:ProductMange.DTO.UpgradeInfo.UpgradeMessage">
+            <summary>
+            升级消息
+            </summary>
+        </member>
+        <member name="P:ProductMange.DTO.UpgradeInfo.UpgradeMessage.OccurTime">
+            <summary>
+            发生时间
+            </summary>
+        </member>
+        <member name="P:ProductMange.DTO.UpgradeInfo.UpgradeMessage.Content">
+            <summary>
+            消息内容
+            </summary>
+        </member>
+        <member name="P:ProductMange.DTO.UpgradeInfo.UpgradeMessage.MessageType">
+            <summary>
+            消息类型
+            </summary>
+        </member>
+        <member name="T:ProductMange.DTO.Version.DTOGetNosUploadInfo">
+            <summary>
+            获取上传信息
+            </summary>
+        </member>
+        <member name="P:ProductMange.DTO.Version.DTOBackNosUploadInfo.BucketName">
+            <summary>
+            桶名
+            </summary>
+        </member>
+        <member name="P:ProductMange.DTO.Version.DTOBackNosUploadInfo.Token">
+            <summary>
+            上传凭证
+            </summary>
+        </member>
+        <member name="P:ProductMange.DTO.Version.DTOBackNosUploadInfo.EndPoint">
+            <summary>
+            节点
+            </summary>
+        </member>
+        <member name="T:ProductMange.DTO.Version.DTOUpgradeName">
+            <summary>
+            升级包名称
+            </summary>
+        </member>
+        <member name="P:ProductMange.DTO.Version.DTOUpgradeName.BagName">
+            <summary>
+            更新包名称
+            </summary>
+        </member>
+        <member name="P:ProductMange.DTO.Version.DTOUpgradeName.VersionId">
+            <summary>
+            版本ID
+            </summary>
+        </member>
+        <member name="P:ProductMange.DTOVersionInfo.IsPublish">
+            <summary>
+            是否已发布
+            </summary>
+        </member>
+        <member name="P:ProductMange.DTOVersionInfo.VersionNo">
+            <summary>
+             版本号，如10.1.50001
+            </summary>
+        </member>
+        <member name="P:ProductMange.DTOVersionInfo.PublishDate">
+            <summary>
+             发布日期
+            </summary>
+        </member>
+        <member name="P:ProductMange.DTOVersionInfo.LastPublishTime">
+            <summary>
+            最后发布时间（可以多次发布）
+            </summary>
+        </member>
+        <member name="P:ProductMange.DTOVersionInfo.UpgradeBagName">
+            <summary>
+            更新包名称
+            </summary>
+        </member>
+        <member name="P:ProductMange.DTOVersionInfo.Context">
+            <summary>
+            更新内容
+            </summary>
+        </member>
+        <member name="P:ProductMange.DTOVersionInfo.LastOperateUser">
+            <summary>
+            操作用户
+            </summary>
+        </member>
+        <member name="P:ProductMange.DTOVersionInfo.LastUpdateTime">
+            <summary>
+            最后修改时间
+            </summary>
+        </member>
+        <member name="P:ProductMange.DTOGetUserInfo.LoginName">
+            <summary>
+             登陆名
+            </summary>
+        </member>
+        <member name="P:ProductMange.DTOGetUserInfo.UserName">
+            <summary>
+             姓名
+            </summary>
+        </member>
+        <member name="P:ProductMange.DTOGetUserInfo.PassWord">
+            <summary>
+             密码
+            </summary>
+        </member>
+        <member name="P:ProductMange.DTOGetUserInfo.Rights">
+            <summary>
+             权限
+            </summary>
+        </member>
+        <member name="P:ProductMange.DTOModUserInfo.LoginName">
+            <summary>
+             登陆名
+            </summary>
+        </member>
+        <member name="P:ProductMange.DTOModUserInfo.UserName">
+            <summary>
+             姓名
+            </summary>
+        </member>
+        <member name="P:ProductMange.DTOModUserInfo.PassWord">
+            <summary>
+             密码
+            </summary>
+        </member>
+        <member name="P:ProductMange.DTOModUserInfo.Rights">
+            <summary>
+             权限
+            </summary>
+        </member>
+        <member name="P:ProductMange.DTOUpdateUserPass.OldPass">
+            <summary>
+             原密码
+            </summary>
+        </member>
+        <member name="P:ProductMange.DTOUpdateUserPass.NewPass">
+            <summary>
+             新密码
+            </summary>
+        </member>
+        <member name="P:ProductMange.DTOUserInfo.LoginName">
+            <summary>
+             登陆名
+            </summary>
+        </member>
+        <member name="P:ProductMange.DTOUserInfo.UserName">
+            <summary>
+             姓名
+            </summary>
+        </member>
+        <member name="P:ProductMange.DTOUserInfo.PassWord">
+            <summary>
+             密码
+            </summary>
+        </member>
+        <member name="P:ProductMange.DTOUserInfo.RightsDesc">
+            <summary>
+            权限
+            </summary>
+        </member>
+        <member name="P:ProductMange.DTOUserSession.LoginName">
+            <summary>
+             登陆名
+            </summary>
+        </member>
+        <member name="P:ProductMange.DTOUserSession.UserName">
+            <summary>
+             姓名
+            </summary>
+        </member>
+        <member name="P:ProductMange.Model.Prc_BaseInfo.CreateTime">
+            <summary>
+             创建时间
+            </summary>
+        </member>
+        <member name="P:ProductMange.Model.Prc_BaseInfo.CreateOperateUser">
+            <summary>
+            创建用户
+            </summary>
+        </member>
+        <member name="P:ProductMange.Model.Prc_BaseInfo.LastOperateUser">
+            <summary>
+            操作用户
+            </summary>
+        </member>
+        <member name="P:ProductMange.Model.Prc_BaseInfo.LastUpdateTime">
+            <summary>
+            最后修改时间
+            </summary>
+        </member>
+        <member name="P:ProductMange.Model.Prc_BaseInfo.IsDelete">
+            <summary>
+            是否删除
+            </summary>
+        </member>
+        <member name="P:ProductMange.Model.Prc_ConfigSet.Code">
+            <summary>
+            配置key
+            </summary>
+        </member>
+        <member name="P:ProductMange.Model.Prc_ConfigSet.Value">
+            <summary>
+            配置值
+            </summary>
+        </member>
+        <member name="P:ProductMange.Model.Prc_Holiday.Year">
+            <summary>
+            年份
+            </summary>
+        </member>
+        <member name="P:ProductMange.Model.Prc_Holiday.Data">
+            <summary>
+            月份与日份的json数据
+            </summary>
+        </member>
+        <member name="P:ProductMange.Model.Prc_UpgradeInfo.IsSingle">
+            <summary>
+            是否单店
+            </summary>
+        </member>
+        <member name="P:ProductMange.Model.Prc_UpgradeInfo.MallName">
+            <summary>
+            商城名称
+            </summary>
+        </member>
+        <member name="P:ProductMange.Model.Prc_UpgradeInfo.MallCode">
+            <summary>
+            商城编号
+            </summary>
+        </member>
+        <member name="P:ProductMange.Model.Prc_UpgradeInfo.OriginalVersionNo">
+            <summary>
+            原版本
+            </summary>
+        </member>
+        <member name="P:ProductMange.Model.Prc_UpgradeInfo.TargetVersionNo">
+            <summary>
+            目标版本
+            </summary>
+        </member>
+        <member name="P:ProductMange.Model.Prc_UpgradeInfo.TargetVersionID">
+            <summary>
+            目标版本ID
+            </summary>
+        </member>
+        <member name="P:ProductMange.Model.Prc_UpgradeInfo.BusinessCount">
+            <summary>
+            门店数量
+            </summary>
+        </member>
+        <member name="P:ProductMange.Model.Prc_UpgradeInfo.ReserveTime">
+            <summary>
+            预约时间
+            </summary>
+        </member>
+        <member name="P:ProductMange.Model.Prc_UpgradeInfo.ContactPerson">
+            <summary>
+            联系人
+            </summary>
+        </member>
+        <member name="P:ProductMange.Model.Prc_UpgradeInfo.ContactPhone">
+            <summary>
+            联系电话
+            </summary>
+        </member>
+        <member name="P:ProductMange.Model.Prc_UpgradeInfo.UpgradeStatus">
+            <summary>
+            更新状态
+            </summary>
+        </member>
+        <member name="P:ProductMange.Model.Prc_UpgradeInfo.ConfirmUpgradeTime">
+            <summary>
+            确认更新时间
+            </summary>
+        </member>
+        <member name="P:ProductMange.Model.Prc_UpgradeInfo.ApplyTime">
+            <summary>
+            申请时间
+            </summary>
+        </member>
+        <member name="P:ProductMange.Model.Prc_UpgradeInfo.HeartbeatTime">
+            <summary>
+            上一次收到心跳的时间
+            </summary>
+        </member>
+        <member name="P:ProductMange.Model.Prc_UpgradeInfo.StartUpgradeTime">
+            <summary>
+            开始更新时间
+            </summary>
+        </member>
+        <member name="P:ProductMange.Model.Prc_UpgradeInfo.EndUpgradeTime">
+            <summary>
+            结束更新时间
+            </summary>
+        </member>
+        <member name="P:ProductMange.Model.Prc_UpgradeInfo.Summary">
+            <summary>
+            备注
+            </summary>
+        </member>
+        <member name="T:ProductMange.Model.Prc_UpgradeInfoItem">
+            <summary>
+            升级信息细项
+            </summary>
+        </member>
+        <member name="P:ProductMange.Model.Prc_UpgradeInfoItem.UpgradeInfo">
+            <summary>
+            所属升级详情
+            </summary>
+        </member>
+        <member name="P:ProductMange.Model.Prc_UpgradeInfoItem.BusinessName">
+            <summary>
+            商户名称
+            </summary>
+        </member>
+        <member name="P:ProductMange.Model.Prc_UpgradeInfoItem.BusinessType">
+            <summary>
+            商户类型
+            </summary>
+        </member>
+        <member name="P:ProductMange.Model.Prc_UpgradeInfoItem.UpgradeBagStatus">
+            <summary>
+            更新包下发状态
+            </summary>
+        </member>
+        <member name="P:ProductMange.Model.Prc_UpgradeInfoItem.UpgradeStatus">
+            <summary>
+            更新状态
+            </summary>
+        </member>
+        <member name="P:ProductMange.Model.Prc_UpgradeInfoItem.StartUpgradeTime">
+            <summary>
+            升级开始时间
+            </summary>
+        </member>
+        <member name="P:ProductMange.Model.Prc_UpgradeInfoItem.EndUpgradeTime">
+            <summary>
+            升级结束时间
+            </summary>
+        </member>
+        <member name="P:ProductMange.Model.Prc_UpgradeInfoItem.HeartbeatStatus">
+            <summary>
+            心跳状态(0正常，1异常，-1无)
+            </summary>
+        </member>
+        <member name="P:ProductMange.Model.Prc_UpgradeInfoItem.BusinessNum">
+            <summary>
+            门店编码
+            </summary>
+        </member>
+        <member name="P:ProductMange.Model.Prc_UpgradeMessage.UpgradeInfoItem">
+            <summary>
+            所属更新细项
+            </summary>
+        </member>
+        <member name="P:ProductMange.Model.Prc_UpgradeMessage.Content">
+            <summary>
+            消息内容
+            </summary>
+        </member>
+        <member name="P:ProductMange.Model.Prc_UpgradeMessage.Result">
+            <summary>
+            处理结果，只对EnumMessageType.Question类有意义
+            </summary>
+        </member>
+        <member name="P:ProductMange.Model.Prc_UpgradeMessage.OccurTime">
+            <summary>
+            发生时间
+            </summary>
+        </member>
+        <member name="P:ProductMange.Model.Prc_UpgradeMessage.MessageType">
+            <summary>
+            消息类型
+            </summary>
+        </member>
+        <member name="P:ProductMange.Model.Prc_UpgradeMessage.MessageFlag">
+            <summary>
+            消息标志
+            </summary>
+        </member>
+        <member name="P:ProductMange.Model.Prc_UpgradeMessage.HandleStatus">
+            <summary>
+            处理状态
+            </summary>
+        </member>
+        <member name="P:ProductMange.Model.Prc_UpgradeMessage.ExtendInfo">
+            <summary>
+            扩展信息
+            </summary>
+        </member>
+        <member name="P:ProductMange.Model.Prc_UserInfo.LoginName">
+            <summary>
+             登陆名
+            </summary>
+        </member>
+        <member name="P:ProductMange.Model.Prc_UserInfo.UserName">
+            <summary>
+             姓名
+            </summary>
+        </member>
+        <member name="P:ProductMange.Model.Prc_UserInfo.PassWord">
+            <summary>
+             密码
+            </summary>
+        </member>
+        <member name="P:ProductMange.Model.Prc_UserInfo.Rights">
+            <summary>
+            权限
+            </summary>
+        </member>
+        <member name="M:ProductMange.Model.Prc_UserInfo.GetRightName(System.String)">
+            <summary>
+             密码
+            </summary>
+        </member>
+        <member name="P:ProductMange.Model.Prc_VersionInfo.IsPublish">
+            <summary>
+            是否已发布
+            </summary>
+        </member>
+        <member name="P:ProductMange.Model.Prc_VersionInfo.VersionNo">
+            <summary>
+             版本号，如10.1.50001
+            </summary>
+        </member>
+        <member name="P:ProductMange.Model.Prc_VersionInfo.PublishDate">
+            <summary>
+             发布日期
+            </summary>
+        </member>
+        <member name="P:ProductMange.Model.Prc_VersionInfo.Context">
+            <summary>
+            更新内容
+            </summary>
+        </member>
+        <member name="P:ProductMange.Model.Prc_VersionInfo.LastPublishTime">
+            <summary>
+            最后发布时间
+            </summary>
+        </member>
+        <member name="P:ProductMange.Model.Prc_VersionInfo.UpgradeBagName">
+            <summary>
+            更新包名称
+            </summary>
+        </member>
+        <member name="F:ProductMange.Model.Enum.EnumBusinessType.Center">
+            <summary>
+            总部管理
+            </summary>
+        </member>
+        <member name="F:ProductMange.Model.Enum.EnumBusinessType.Mall">
+            <summary>
+            商城管理
+            </summary>
+        </member>
+        <member name="F:ProductMange.Model.Enum.EnumBusinessType.Shopping">
+            <summary>
+            零售
+            </summary>
+        </member>
+        <member name="F:ProductMange.Model.Enum.EnumBusinessType.Game">
+            <summary>
+            儿童乐园
+            </summary>
+        </member>
+        <member name="F:ProductMange.Model.Enum.EnumBusinessType.Ticket">
+            <summary>
+            票务
+            </summary>
+        </member>
+        <member name="F:ProductMange.Model.Enum.EnumHandleStatus.UnHandle">
+            <summary>
+            未处理
+            </summary>
+        </member>
+        <member name="F:ProductMange.Model.Enum.EnumHandleStatus.Handled">
+            <summary>
+            已处理
+            </summary>
+        </member>
+        <member name="F:ProductMange.Model.Enum.EnumMessageType.Info">
+            <summary>
+            信息
+            </summary>
+        </member>
+        <member name="F:ProductMange.Model.Enum.EnumMessageType.Question">
+            <summary>
+            询问
+            </summary>
+        </member>
+        <member name="F:ProductMange.Model.Enum.EnumMessageType.Error">
+            <summary>
+            错误
+            </summary>
+        </member>
+        <member name="F:ProductMange.Model.Enum.EnumQuestionResult.None">
+            <summary>
+            无结果
+            </summary>
+        </member>
+        <member name="F:ProductMange.Model.Enum.EnumQuestionResult.Ignore">
+            <summary>
+            忽略
+            </summary>
+        </member>
+        <member name="F:ProductMange.Model.Enum.EnumQuestionResult.ReTry">
+            <summary>
+            重试
+            </summary>
+        </member>
+        <member name="F:ProductMange.Model.Enum.EnumQuestionResult.Stop">
+            <summary>
+            终止
+            </summary>
+        </member>
+        <member name="T:ProductMange.Model.Enum.EnumUpgradeBagStatus">
+            <summary>
+            更新包状态
+            </summary>
+        </member>
+        <member name="F:ProductMange.Model.Enum.EnumUpgradeBagStatus.None">
+            <summary>
+            未下发
+            </summary>
+        </member>
+        <member name="F:ProductMange.Model.Enum.EnumUpgradeBagStatus.Downloading">
+            <summary>
+            下发中
+            </summary>
+        </member>
+        <member name="F:ProductMange.Model.Enum.EnumUpgradeBagStatus.Downloaded">
+            <summary>
+            已下发
+            </summary>
+        </member>
+        <member name="F:ProductMange.Model.Enum.EnumUpgradeBagStatus.Abnormal">
+            <summary>
+            下发异常
+            </summary>
+        </member>
+        <member name="T:ProductMange.Model.Enum.EnumUpgradeStatus">
+            <summary>
+            更新状态
+            </summary>
+        </member>
+        <member name="F:ProductMange.Model.Enum.EnumUpgradeStatus.Reserved">
+            <summary>
+            已预约
+            </summary>
+        </member>
+        <member name="F:ProductMange.Model.Enum.EnumUpgradeStatus.Upgrading">
+            <summary>
+            升级中
+            </summary>
+        </member>
+        <member name="F:ProductMange.Model.Enum.EnumUpgradeStatus.UpgradeSucc">
+            <summary>
+            升级成功
+            </summary>
+        </member>
+        <member name="F:ProductMange.Model.Enum.EnumUpgradeStatus.UpgradeFail">
+            <summary>
+            升级失败
+            </summary>
+        </member>
+        <member name="F:ProductMange.Model.Enum.EnumUpgradeStatus.Overdued">
+            <summary>
+            已过期
+            </summary>
+        </member>
+        <member name="F:ProductMange.Model.Enum.EnumUpgradeStatus.Canceled">
+            <summary>
+            已取消
+            </summary>
+        </member>
+        <member name="T:ProductMange.ConstPara">
+            <summary>
+            常量定义
+            </summary>
+        </member>
+        <member name="P:ProductMange.Public.ComHttpContext.Current">
+            <summary>
+            当前上下文
+            </summary>
+        </member>
+        <member name="M:ProductMange.Public.OutInterface.OutInterfaceAPISign.CreateSign(System.Object,System.String,System.String,System.String)">
+            <summary>
+            创建签名
+            </summary>
+            <param name="obj">DTO对象</param>
+            <param name="timestamp">时间字符串</param>
+            <param name="tpKey">签名KEY</param>
+            <param name="secretkey">签名密码</param>
+            <returns></returns>
+        </member>
+        <member name="T:ProductMange.Public.OutInterface.OutInterfaceValidate">
+            <summary>
+            外部接口校验
+            </summary>
+        </member>
+        <member name="M:ProductMange.Public.PostHelper.Post``2(``0,System.String)">
+            <summary>
+            发送信息到平台/总部
+            </summary>
+        </member>
+        <member name="F:ProductMange.Public.PrcConfigSet.ReserveHour">
+            <summary>
+            需提前预约小时数
+            </summary>
+        </member>
+        <member name="F:ProductMange.Public.PrcConfigSet.ReserveDay">
+            <summary>
+            最多可预约天数
+            </summary>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:ProductMange.Public.PublicFun.GenerateSign2(System.Object,System.String,System.String)" -->
+        <member name="M:ProductMange.Public.PublicFun.GetDictionary(System.Object)">
+            <summary>
+            反射对象的属性和值
+            </summary>
+            <param name="o"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ProductMange.Public.PublicFun.DeserializeObject(System.Byte[])">
+            <summary>  
+            把字节数组反序列化成对象  
+            </summary>  
+        </member>
+        <member name="M:ProductMange.Public.PublicFun.CreatSecretkey(System.String)">
+            <summary>
+            验签加密
+            </summary>
+            <param name="data"></param>
+            <returns></returns>
+        </member>
+        <member name="T:ProductMange.Loger">
+            <summary>
+            日志类
+            </summary>
+        </member>
+    </members>
+</doc>
